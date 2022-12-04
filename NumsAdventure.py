@@ -423,6 +423,8 @@ while True:
             draw_string("6-The djinn Cloud", 5, 201)
         elif game.level == 7:
             draw_string("7-Midnight Climax", 5, 201)
+        elif game.level == 8:
+            draw_string("8-Fuskegee Limbo", 5, 201)
 
         #player movement
         if keydown(KEY_LEFT) and player.isOnLadder == False:
@@ -464,8 +466,8 @@ while True:
             player.isOnLadder = False
 
         #go the next level
-        #if (door[0] < player.x < door[0] + 20 or door[0] < player.x + 20 < door[0] + 20) and (player.y + 20 == door[1]):
-        if (door[0] < player.x < door[0] + 20 or door[0] < player.x + 20 < door[0] + 20) and (player.y + 20 == door[1]) or keydown(KEY_SHIFT):
+        if (door[0] < player.x < door[0] + 20 or door[0] < player.x + 20 < door[0] + 20) and (player.y + 20 == door[1]):
+        #if (door[0] < player.x < door[0] + 20 or door[0] < player.x + 20 < door[0] + 20) and (player.y + 20 == door[1]) or keydown(KEY_SHIFT):
             game.level += 1
             fill_rect(0, 0, 320, 222, 'white')
             fill_rect(0, 222, 320, -25, 'grey')

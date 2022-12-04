@@ -320,8 +320,6 @@ class Canons:
             fill_rect(self.x, self.y, 20, 25, 'red')
             fill_rect(self.x, self.y + 3, -6, 9, 'red')
 
-
-
 while True:
 
     game = Game()
@@ -329,7 +327,6 @@ while True:
     ladder1 = [200, 197]
     ladder2 = [40, 155]
     ladder3 = [200, 103]
-    ladder4 = [-50, 0]
 
     door = [25, 51]
 
@@ -341,6 +338,8 @@ while True:
     spider1 = Spiders(-50, 0, False, False)
     spider2 = Spiders(-50, 0, False, False)
     spider3 = Spiders(-50, 0, False, False)
+    spider4 = Spiders(-50, 0, False, False)
+    spider5 = Spiders(-50, 0, False, False)
 
     bloodyPlatform1 = BloodyPlatform(-50, 0, False, "top")
     bloodyPlatform2 = BloodyPlatform(-50, 0, False, "top")
@@ -369,7 +368,6 @@ while True:
         fill_rect(ladder2[0], ladder2[1], 20, - 52, 'purple')
         fill_rect(0, 56, 320, -5, 'grey')
         fill_rect(ladder3[0], ladder3[1], 20, - 52, 'purple')
-        fill_rect(ladder4[0], ladder4[1], 20, - 52, 'purple')
 
         fill_rect(door[0], door[1], 20, -30, 'green')
 
@@ -386,6 +384,10 @@ while True:
             spider2.main()
         if spider3.isAlive:
             spider3.main()
+        if spider4.isAlive:
+            spider4.main()
+        if spider5.isAlive:
+            spider5.main()
 
         if bloodyPlatform1.isAlive:
             bloodyPlatform1.main()
@@ -444,8 +446,6 @@ while True:
                 player.move_up()
             elif (ladder3[0] <= player.x <= ladder3[0] + 20 or ladder3[0] <= player.x + 20 <= ladder3[0] + 20) and (ladder3[1] >= player.y + 20 > ladder3[1] - 52):
                 player.move_up()
-            elif (ladder4[0] <= player.x <= ladder4[0] + 20 or ladder4[0] <= player.x + 20 <= ladder4[0] + 20) and (ladder4[1] >= player.y + 20 > ladder4[1] - 52):
-                player.move_up()
         elif keydown(KEY_DOWN):
             if (ladder1[0] <= player.x <= ladder1[0] + 20 or ladder1[0] <= player.x + 20 <= ladder1[0] + 20) and (ladder1[1] > player.y + 20 >= ladder1[1] - 42):
                 player.move_down()
@@ -453,16 +453,12 @@ while True:
                 player.move_down()
             elif (ladder3[0] <= player.x <= ladder3[0] + 20 or ladder3[0] <= player.x + 20 <= ladder3[0] + 20) and (ladder3[1] > player.y + 20 >= ladder3[1] - 52):
                 player.move_down()
-            elif (ladder4[0] <= player.x <= ladder4[0] + 20 or ladder4[0] <= player.x + 20 <= ladder4[0] + 20) and (ladder4[1] > player.y + 20 >= ladder4[1] - 52):
-                player.move_down()
 
         if (ladder1[0] <= player.x <= ladder1[0] + 20 or ladder1[0] <= player.x + 20 <= ladder1[0] + 20) and (ladder1[1] - 2 >= player.y + 20 > ladder1[1] - 42):
             player.isOnLadder = True
         elif (ladder2[0] <= player.x <= ladder2[0] + 20 or ladder2[0] <= player.x + 20 <= ladder2[0] + 20) and (ladder2[1] - 2 >= player.y + 20 > ladder2[1] - 52):
             player.isOnLadder = True
         elif (ladder3[0] <= player.x <= ladder3[0] + 20 or ladder3[0] <= player.x + 20 <= ladder3[0] + 20) and (ladder3[1] - 2 >= player.y + 20 > ladder3[1] - 52):
-            player.isOnLadder = True
-        elif (ladder4[0] <= player.x <= ladder4[0] + 20 or ladder4[0] <= player.x + 20 <= ladder4[0] + 20) and (ladder4[1] - 2 >= player.y + 20 > ladder4[1] - 52):
             player.isOnLadder = True
         else:
             player.isOnLadder = False
@@ -473,6 +469,7 @@ while True:
             game.level += 1
             fill_rect(0, 0, 320, 222, 'white')
             fill_rect(0, 222, 320, -25, 'grey')
+            sleep(0.015)
             if game.level == 2:
 
                 player = Player(25, 177)
@@ -554,7 +551,6 @@ while True:
 
                 ladder1[0] = 170
                 ladder2[0] = 45
-                ladder4 = [255, 155]
                 ladder3[0] = 150
 
                 door[0] = 265
@@ -577,7 +573,6 @@ while True:
                 ladder1[0] = 50
                 ladder2[0] = 160
                 ladder3[0] = 40
-                ladder4[0] = -50
 
                 door[0] = 265
 
@@ -596,6 +591,34 @@ while True:
 
                 canon1 = Canons(10, 130, True, "right")
                 canon2 = Canons(235, 26, True, "left")
+            elif game.level == 8:
+
+                player = Player(20, 31)
+
+                ladder1[0] = 250
+                ladder2[0] = 20
+                ladder3[0] = 290
+
+                door = [60, 197]
+
+                zombie1 = Zombies(120, 135, True, "left")
+                zombie2 = Zombies(-50, 31, False, "right")
+
+                spider1 = Spiders(285, 0, True, False)
+                spider2 = Spiders(245, 0, True, False)
+                spider3 = Spiders(15, 56, True, False)
+                spider4 = Spiders(215, 108, True, False)
+                spider5 = Spiders(250, 108, True, False)
+
+                bloodyPlatform1 = BloodyPlatform(230, 140, True, "top")
+                bloodyPlatform2 = BloodyPlatform(50, 182, True, "top")
+
+                knight1 = Knight(15, 167, True)
+
+                skeleton1 = Skeletons(200, 83, True, "left")
+
+                canon1 = Canons(60, 26, True, "right")
+                canon2 = Canons(-50, 0, False, "left")
             else:
                 game.running = False
                 game.endScreen = True
@@ -624,13 +647,11 @@ while True:
             game.game_over()
         elif (get_pixel(player.x -1, player.y + 3) or get_pixel(player.x + 21, player.y + 3)) == color('red'):
             game.game_over()
-
     while game.gameOver:
         if keydown(KEY_OK):
             game.running = True
             game.gameOver = False
             break
-
     while game.endScreen:
         if keydown(KEY_OK):
             game.running = True
